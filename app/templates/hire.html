@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hireWrap">
+    <p>你好：{{ username }}</p>
+    <form action="hire" method="post" name="rent">
+        <div class="input" id="com">
+            {% if error %}<p class="error">{{ error }}</p>{% endif %}
+            <select name="company">
+                <option value = "ofo">ofo</option>
+                <option value = "mobike">摩拜</option>
+                <option value = "bluegogo">小蓝单车</option>
+                <option value = "hellobike">hellobike</option>
+                <option value = "bai">小白单车</option>
+            </select>
+        </div>
+        <p><input type = "submit" name="sub" value="租借"></p>
+        <p><input type = "submit" name="sub" value="还车"></p>
+        <a href="{{ url_for('user') }}">我的界面</a>
+        <a href="{{ url_for('login') }}">退出</a>
+    </form>
+</div>
+{% endblock %}

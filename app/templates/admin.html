@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="admin" method="post" name="increase">
+    <div class="adminWrap" id="com">
+        {% if error %}<p class="error">{{ error }}</p>{% endif %}
+        <p>管理员你可以为不同的公司增添车辆</p>
+        <select name="company">
+            <option value = "ofo">ofo</option>
+            <option value = "mobike">摩拜</option>
+            <option value = "bluegogo">小蓝单车</option>
+            <option value = "hellobike">hellobike</option>
+            <option value = "bai">小白单车</option>
+        </select>
+        <br>
+        <p>增添的数目：</p>
+        <textarea name="num"></textarea>
+        <p><input type = "submit" name="sub" value="确认"></p>
+        <a href="{{ url_for('login') }}">退出</a>
+    </div>
+</form>
+<div class="adminWrap">
+    {% if items %}
+    <table>
+        <tr>
+            <th>用户名</th>
+            <th>身份</th>
+            <th>账户</th>
+            <th>性别</th>
+            <th>所属院校</th>
+            <th>密码</th>
+            <th>是否已借车</th>
+            <th>单车id</th>
+            <th>单车公司</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            {% for i in item%}
+            <td>
+                {{i}}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+{% endblock %}

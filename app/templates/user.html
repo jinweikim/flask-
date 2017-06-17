@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="userWrap">
+    <p align="center" style="color:blue;font-size:16px">你好：{{ username }}</p>
+    {% if error %}<p class="error" style="color:red;">{{ error }}</p>{% endif %}
+    <form action="" method="post" name="pwd">
+        <p>修改密码</p>
+        <p>旧密码:</p>
+        <textarea name="oldpassword"></textarea>
+        <p>新密码:</p>
+        <textarea name="newpassword"></textarea>
+        <p><input type = "submit" value="确定"></p>
+    </form>
+</div>
+<div class="userWrap">
+    <p>借车记录：</p>
+    {% if records %}
+    <table>
+        <tr>
+            <th>用户名</th>
+            <th>单车</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            {% for i in record%}
+            <td>
+                {{i}}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>无记录</p>
+    {% endif %}
+</div>
+
+{% endblock %}

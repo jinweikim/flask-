@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="loginWrap">
+    <p>登录</p>
+    <form action="" method="post" name="login">
+        <div class="input" id="user">
+            {% if error %}<p class="error">{{ error }}</p>{% endif %}
+            <input type="text" name="username" placeholder="登录名">
+        </div>
+        <div class="input" id="pwd">
+            <input type="text" name="password" placeholder="密码">
+        </div>
+        <p><input type = "submit" value="登录"></p>
+    </form>
+</div>
+
+{% endblock %}
